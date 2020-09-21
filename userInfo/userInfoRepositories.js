@@ -36,10 +36,6 @@ class UserInfo {
     return userInfo[0];
   }
 
-  // findPoliciesByUserName(userName) {
-  //   return this.memory[userName];
-  // }
-
   findUserByPolicyNumber(policyNumber) {
     const policies = this.memory["policies"];
     const policyInfo = policies.filter((item) => {

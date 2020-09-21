@@ -1,20 +1,19 @@
-const getPolicyByName = (userId) => {
-    
+const getPolicyByName = (userRepository) => {
   return async (req, res) => {
-    const userId = req.body.userId;
-    const userData = userRepository.findUserInfoByUserId(userId);
-    if (userData) {
+    const userName = req.body.userName;
+    const policies = userRepository.findPoliciesByUserName(userName);
+    if (policies) {
       res.render("display", {
         display_details: {
-          displayName: `Details of ${userId}`,
-          result: userData,
+          displayName: `Policies associated with client ${userName}`,
+          result: policies,
         },
       });
     } else {
       res.render("display", {
         display_details: {
-          displayName: `Details of ${userId}`,
-          result: "Invalid user Id. Please enter valid ID",
+          displayName: `Error ${userName}`,
+          result: "Invalid client name. Please enter valid client name",
         },
       });
     }

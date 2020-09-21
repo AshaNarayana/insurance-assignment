@@ -1,6 +1,5 @@
 const fetch = require("node-fetch");
-
-const getAllPolicies = (userRepository) => {
+const getAllPoliciesFromApi = (userRepository) => {
   return async (req, res) => {
     try {
       const response = await fetch(
@@ -16,4 +15,4 @@ const getAllPolicies = (userRepository) => {
   };
 };
 
-module.exports = getAllPolicies;
+module.exports = getAllPoliciesFromApi;

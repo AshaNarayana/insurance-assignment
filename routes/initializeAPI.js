@@ -1,8 +1,7 @@
 const fetch = require("node-fetch");
-
-const fetchAllUsers = (userRepository) => {
+const getAllPolicies = require('./getAllPoliciesFromApi')
+const initializeAPI = (userRepository) => {
   return async (req, res) => {
-    
     const response = await fetch(
       "http://www.mocky.io/v2/5808862710000087232b75ac"
     ).catch((error) => {
@@ -19,14 +18,17 @@ const fetchAllUsers = (userRepository) => {
     if (hasMatch) {
       try{
       const role = userRepository.findRole(userLogged)
+      if(role == "admin"){
+        getAllPoliciesFromApi(userRepository);
+      }
       res.render("main",{role : role});
       }catch(error){console.log("error", error)}
     } else {
       const message = "Invalid credentials. Please enter valid credentials"
-      res.render("index",{error : message});
+      res.render("login",{error : message});
     }
   };
 };
 
 
-module.exports = fetchAllUsers;
+module.exports = initializeAPI;

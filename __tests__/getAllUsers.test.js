@@ -1,18 +1,7 @@
 const app = require('../server/server')
 const fetch = require('node-fetch');
-const getAllPolicy = require('../routes/getAllPolicies')
-
+const getAllPolicy = require('../routes/getAllPoliciesFromApi')
 test("should get all user details from API", async() => {
-   // expect.assertions(1);
     const response = await fetch('http://www.mocky.io/v2/580891a4100000e8242b75c5');
     expect(response.status).toEqual(200);
    })
-
-
-//    describe('should get all users from API', async () => {
-//     it('ack', async () => {
-//         const response = await fetch('http://www.mocky.io/v2/580891a4100000e8242b75c5');
-//         expect(response.status).toEqual(200);
-//         console.log(response);
-//     });
-// });
