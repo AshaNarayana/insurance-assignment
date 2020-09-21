@@ -1,11 +1,9 @@
 const getPolicyByName = (userRepository) => {
-  
   return async (req, res) => {
     const userName = req.body.userName;
-    console.log("userName",userName)
+    console.log("userName", userName);
     const policies = userRepository.findPoliciesByUserName(userName);
-    if (policies.length > 0) 
-    {
+    if (policies.length > 0) {
       res.render("display", {
         display_details: {
           displayName: `There is/are ${policies.length} policy/policies associated with client ${userName}`,
@@ -21,6 +19,6 @@ const getPolicyByName = (userRepository) => {
       });
     }
   };
-  }
-  
-  module.exports = getPolicyByName;
+};
+
+module.exports = getPolicyByName;

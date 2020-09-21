@@ -8,7 +8,12 @@
 </head>
 
 <body>
-  <h2>Policies</h2>
+  <h2><%= display_details.displayName %></h2>
+
+  <% if(display_details.message != "") { %>
+  <h3 style="color: brown;"><%= display_details.message %></h3>
+  <% } %>
+
   <form method="POST" action="/userName">
     <div class="container">
       <label for="userName"><strong>Enter Client Name</strong></label>
@@ -23,7 +28,7 @@
       <button type="submit">Search</button>
     </div>
   </form>
-  <% if(role === "admin") { %>
+  <% if(display_details.role === "admin" && display_details.message === "") { %>
   <form method="POST" action="/policy/userName">
     <div class="container">
       <label for="userName"><b>List of policies associated with user </b></label>
@@ -36,7 +41,6 @@
       <label for="policyNumber"><b>Find user associated with policy number</b></label>
       <input type="text" placeholder="Enter policy number" name="policyNumber" required>
       <button type="submit">Search</button>
-
     </div>
   </form>
   <% } %>

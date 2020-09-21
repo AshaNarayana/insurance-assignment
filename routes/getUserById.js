@@ -20,6 +20,4 @@ const getUserById = (userRepository) => {
   };
 };
 
-
-  
-  module.exports = getUserById;
+module.exports = getUserById;
