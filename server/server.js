@@ -20,6 +20,7 @@ app.use(express.static(path.join(__dirname, "../public")));
 app.use('/', require('../routes/routes'))
 app.post('/userId', getUserByIdRoute)
 app.post('/userName', getUserByUserNameRoute)
+//app.post('/admin', getAllPoliciesRoute)
 app.post('/policy/userName', getPolicyByUserNameRoute)
 app.post('/policyNumber', getUserByPolicyRoute)
 app.get('/policy/getAllPolicies', getAllPoliciesRoute)

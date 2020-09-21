@@ -1,5 +1,5 @@
 const fetch = require("node-fetch");
-const getAllPolicies = require('./getAllPoliciesFromApi')
+const getAllPoliciesFromApi = require('./getAllPoliciesFromApi')
 const initializeAPI = (userRepository) => {
   return async (req, res) => {
     const response = await fetch(
@@ -19,9 +19,15 @@ const initializeAPI = (userRepository) => {
       try{
       const role = userRepository.findRole(userLogged)
       if(role == "admin"){
-        getAllPoliciesFromApi(userRepository);
-      }
-      res.render("main",{role : role});
+        const policyRes = await fetch(
+          "http://www.mocky.io/v2/580891a4100000e8242b75c5"
+        ).catch((error) => {
+          console.error('Error:', error);
+        });
+        const jsonRes = await policyRes.json();      
+        userRepository.setAllPolicies(jsonRes.policies);
+       }
+        res.render("main",{role : role});
       }catch(error){console.log("error", error)}
     } else {
       const message = "Invalid credentials. Please enter valid credentials"

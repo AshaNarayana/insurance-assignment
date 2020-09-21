@@ -55,6 +55,9 @@ class UserInfo {
 
   findPoliciesByUserName(userName) {
     const policyArr = this.memory["policies"];
+
+    console.log("this.memory",this.memory)
+    console.log("this.memory.policies",this.memory["policies"])
     let policiesLinked = [];
     const clientArr = this.memory["clients"];
     const clientInfo = clientArr.find((item) => {

@@ -26,7 +26,7 @@ const validateUser = (userRepository) => {
       if (char.email === emailProvided && char.id === userLogged) {
         res.render("main");
       } else {
-        res.redirect("index");
+        res.redirect("login");
       }
     });
 

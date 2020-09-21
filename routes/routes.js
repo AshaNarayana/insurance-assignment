@@ -2,7 +2,7 @@ const express = require('express');
 
 const app = express()
 app.get("/",(req,res)=>{
-  res.render("index",{error : ""})
+  res.render("login",{error : ""})
 });
 
 // app.post("/main",(req,res)=>{

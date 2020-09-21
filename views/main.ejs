@@ -23,9 +23,9 @@
       <button type="submit">Search</button>
     </div>
   </form>
-      <% if(role === "admin") { %>
-        <form method="POST" action="/policy/userName">
-          <div class="container">
+  <% if(role === "admin") { %>
+  <form method="POST" action="/policy/userName">
+    <div class="container">
       <label for="userName"><b>List of policies associated with user </b></label>
       <input type="text" placeholder="Search using user Name" name="userName" required>
       <button type="submit">Search</button>
@@ -36,7 +36,7 @@
       <label for="policyNumber"><b>Find user associated with policy number</b></label>
       <input type="text" placeholder="Enter policy number" name="policyNumber" required>
       <button type="submit">Search</button>
-     
+
     </div>
   </form>
   <% } %>
