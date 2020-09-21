@@ -12,9 +12,12 @@ const initializeAPI = (userRepository) => {
       userRepository.setAllUsers(jsonResponse.clients);
       let message = "";
       const userLogged = req.body.userName;
+      const emailProvided = req.body.email;
       //validate logged in user
-      const hasMatch = validateUser(userRepository, req);
-      if (hasMatch) {
+      const isValid = userRepository.validateUser(userLogged,emailProvided)
+      console.log("isValid",isValid)
+     // const hasMatch = validateUser(userRepository, req);
+      if (isValid) {
         try {
           let role = userRepository.findRole(userLogged);
           if (role == "admin") {
@@ -53,14 +56,14 @@ const initializeAPI = (userRepository) => {
   };
 };
 
-const validateUser = (userRepository, req) => {
-  const usersData = userRepository.getAllUsers();
-  const emailProvided = req.body.email;
-  const userLogged = req.body.userName;
-  const hasMatch = usersData.find((item) => {
-    return item.email === emailProvided && item.name === userLogged;
-  });
-  return hasMatch;
-};
+// const validateUser = (userRepository, req) => {
+//   const usersData = userRepository.getAllUsers();
+//   const emailProvided = req.body.email;
+//   const userLogged = req.body.userName;
+//   const hasMatch = usersData.find((item) => {
+//     return item.email === emailProvided && item.name === userLogged;
+//   });
+//   return hasMatch;
+// };
 
 module.exports = initializeAPI;

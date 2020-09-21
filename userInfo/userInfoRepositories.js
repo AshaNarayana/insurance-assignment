@@ -55,26 +55,21 @@ class UserInfo {
 
   findPoliciesByUserName(userName) {
     const policyArr = this.memory["policies"];
-
-    console.log("this.memory",this.memory)
-    console.log("this.memory.policies",this.memory["policies"])
     let policiesLinked = [];
     const clientArr = this.memory["clients"];
     const clientInfo = clientArr.find((item) => {
       return item.name === userName;
     });
-   
     if (clientInfo.id) {
       policiesLinked = policyArr.filter((item) => {
         return item.clientId === clientInfo.id;
       });
-      
-        if (policiesLinked.length > 0) {
-         
-          return policiesLinked;
-        } else {
-          return `no policies associated with user ${userName} `;
-        }
+
+      if (policiesLinked.length > 0) {
+        return policiesLinked;
+      } else {
+        return `no policies associated with user ${userName} `;
+      }
     } else {
       return "Invalid policy number";
     }
@@ -87,6 +82,14 @@ class UserInfo {
     });
     const userRole = userInfo[0].role;
     return userRole;
+  }
+
+  validateUser(loggedUser, email) {
+    const clientsInfo = this.memory["clients"];
+    const isValid = clientsInfo.find((item) => {
+      return item.email === email && item.name === loggedUser;
+    });
+    return typeof isValid === "object" ? true : false;
   }
 }
 

@@ -64,7 +64,13 @@ describe("In-Memory User Repository", () => {
     const clients = userRepository.getAllUsers();
     expect(clients).toStrictEqual(userRepository.memory["clients"]);
   });
-
+  it("should validate logged in user", () => {
+    const isValid = userRepository.validateUser(
+      "Britney",
+      "britneyblankenship@quotezart.com"
+    );
+    expect(isValid).toBeTruthy;
+  });
   it("should return role of user", () => {
     const role = userRepository.findRole("Susie");
     expect(role).toBe("user");
@@ -106,7 +112,9 @@ describe("In-Memory User Repository", () => {
   });
 
   it("should return all policies linked to user Manning", () => {
-    const policiesLinkedByUser = userRepository.findPoliciesByUserName("Manning");
+    const policiesLinkedByUser = userRepository.findPoliciesByUserName(
+      "Manning"
+    );
     expect(policiesLinkedByUser).toStrictEqual([
       {
         id: "64cceef9-3a01-49ae-a23b-3761b604800b",
