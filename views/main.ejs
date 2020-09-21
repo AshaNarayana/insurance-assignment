@@ -1,34 +1,45 @@
 <!DOCTYPE html>
 
 <head>
-<link rel="stylesheet" href="/styles/global.css">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-
-<title> Welcome Page</title>
+  <link rel="stylesheet" href="/styles/global.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title> Insurance and Policies</title>
 </head>
+
 <body>
-<h2>Policies</h2>
-    <form method="POST" action="/main">
-        <div class="container">
-
-          <label for="userId"><strong>Enter Client Name</strong></label>
-          <input type="text" placeholder="Search using client name" name="userId" required>
-          <button type="submit">Search</button>
-          <label for="userName"><b>Enter Client Id</b></label>
-          <input type="text" placeholder="Search using client Id" name="userName" required>
-          <button type="submit">Search</button>
-          <% if(role === "admin") { %>
-          <label for="userName"><b>List of policies associated with user </b></label>
-          <input type="text" placeholder="Search using user Name" name="userName" required>
-          <button type="submit">Search</button>
-          <label for="userName"><b>Find user associated with policy number</b></label>
-          <input type="text" placeholder="Enter policy number" name="userName" required>         
-          <button type="submit">Search</button>
-          <% } %>
-        </div>
-      
-      </form>
-
+  <h2>Policies</h2>
+  <form method="POST" action="/userName">
+    <div class="container">
+      <label for="userName"><strong>Enter Client Name</strong></label>
+      <input type="text" placeholder="Search using client name" name="userName" required>
+      <button type="submit">Search</button>
+    </div>
+  </form>
+  <form method="POST" action="/userId">
+    <div class="container">
+      <label for="userId"><b>Enter Client Id</b></label>
+      <input type="text" placeholder="Search using client Id" name="userId" required>
+      <button type="submit">Search</button>
+    </div>
+  </form>
+      <% if(role === "admin") { %>
+        <form method="POST" action="/policy/userName">
+          <div class="container">
+      <label for="userName"><b>List of policies associated with user </b></label>
+      <input type="text" placeholder="Search using user Name" name="userName" required>
+      <button type="submit">Search</button>
+    </div>
+  </form>
+  <form method="POST" action="/policyNumber">
+    <div class="container">
+      <label for="userName"><b>Find user associated with policy number</b></label>
+      <input type="text" placeholder="Enter policy number" name="userName" required>
+      <button type="submit">Search</button>
+     
+    </div>
+  </form>
+  <% } %>
 </body>
+
 </html>

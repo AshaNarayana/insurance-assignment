@@ -1,6 +1,16 @@
-const getUserByName = (userId) => {
+const getUserByName = (userRepository) => {
     return async (req, res) => {
-      res.send(userId.findAllUsers())
+      const userName= req.body.userName
+      
+      const userData = userRepository.findUserInfoByUserName(userName);
+      console.log("userData", userData)
+      
+     if(userData){
+      res.render("display",{display_details :{ displayName: `Details of ${userName}`, result : userData}});
+     }
+      else {
+        res.render("display",{display_details :{ displayName: `Details of ${userName}`, result : "Invalid client name. Please re-enter valid name"}});
+      }
     }
   }
   

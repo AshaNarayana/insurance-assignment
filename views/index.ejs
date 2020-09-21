@@ -3,32 +3,25 @@
 <head>
   <link rel="stylesheet" href="/styles/global.css">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-
   <title> Welcome Page</title>
 </head>
 
 <body>
   <h2>Login Form</h2>
   <form method="POST" action="/main">
-
     <div class="container">
       <label for="uname"><b>Username</b></label>
       <input type="text" placeholder="Enter Username" name="userName" required>
-
       <label for="email"><b>Email Id</b></label>
       <input type="email" placeholder="Enter Email id" name="email" required>
-
       <button type="submit">Login</button>
-
     </div>
-
     <div>
       <% if(error) { %>
       <p style="color: crimson;"> <strong><%= error %></strong></p>
       <% } %>
     </div>
   </form>
-
 </body>
 
 </html>
