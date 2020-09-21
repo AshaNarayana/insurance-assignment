@@ -1,4 +1,5 @@
-const getUserById = (userRepository) => {
+const getPolicyByName = (userId) => {
+    
   return async (req, res) => {
     const userId = req.body.userId;
     const userData = userRepository.findUserInfoByUserId(userId);
@@ -18,8 +19,6 @@ const getUserById = (userRepository) => {
       });
     }
   };
-};
-
-
+  }
   
-  module.exports = getUserById;
+  module.exports = getPolicyByName;

@@ -7,10 +7,10 @@
 </head>
 
 <body>
-  <h2><%= displayName %></h2>
+  <h2><%= display_details.displayName %></h2>
   <form method="POST" action="/main"> <button type="submit">Back</button></form>
-    <div class="container">
-      <h3><%= result %></h3>
+    <div class="container"> 
+      <pre><%= JSON.stringify(display_details.result ,null,'\t')  %></pre>
     </div>
 </body>
 

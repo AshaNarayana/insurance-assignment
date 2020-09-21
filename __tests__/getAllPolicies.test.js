@@ -11,8 +11,6 @@ const getAllPolicies = require('../routes/getAllPolicies')
        // console.log(response);
     });
 
-
-
 // test("should get all policy details from API", async() => {
 //      let data = await getAllPolicies();
 //        expect(data.policies).toEqual('Leanne Graham')

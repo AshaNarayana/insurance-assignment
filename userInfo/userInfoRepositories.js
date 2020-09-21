@@ -36,9 +36,9 @@ class UserInfo {
     return userInfo[0];
   }
 
-  findPoliciesByUserName(userName) {
-    return this.memory[userName];
-  }
+  // findPoliciesByUserName(userName) {
+  //   return this.memory[userName];
+  // }
 
   findUserByPolicyNumber(policyNumber) {
     const policies = this.memory["policies"];
@@ -57,21 +57,21 @@ class UserInfo {
     }
   }
 
-  findPoliciesByUserId(userName) {
+  findPoliciesByUserName(userName) {
     const policyArr = this.memory["policies"];
     let policiesLinked = [];
     const clientArr = this.memory["clients"];
     const clientInfo = clientArr.find((item) => {
       return item.name === userName;
     });
-    console.log("clientInfo", clientInfo);
+   
     if (clientInfo.id) {
       policiesLinked = policyArr.filter((item) => {
         return item.clientId === clientInfo.id;
       });
-      console.log("policiesLinked",policiesLinked)
+      
         if (policiesLinked.length > 0) {
-          console.log("policiesLinked", policiesLinked);
+         
           return policiesLinked;
         } else {
           return `no policies associated with user ${userName} `;

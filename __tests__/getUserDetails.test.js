@@ -106,7 +106,7 @@ describe("In-Memory User Repository", () => {
   });
 
   it("should return all policies linked to user Manning", () => {
-    const policiesLinkedByUser = userRepository.findPoliciesByUserId("Manning");
+    const policiesLinkedByUser = userRepository.findPoliciesByUserName("Manning");
     expect(policiesLinkedByUser).toStrictEqual([
       {
         id: "64cceef9-3a01-49ae-a23b-3761b604800b",
