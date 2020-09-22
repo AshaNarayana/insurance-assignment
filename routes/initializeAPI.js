@@ -19,7 +19,7 @@ const initializeAPI = (userRepository) => {
         try {
           let role = userRepository.findRole(userLogged);
           if (role == "admin") {
-            //if its admin user fetch policies from api
+            //if its admin user, fetch policies from api
             const policyResponse = await fetch(
               "http://www.mocky.io/v2/580891a4100000e8242b75c5"
             ).catch((error) => {
@@ -38,8 +38,8 @@ const initializeAPI = (userRepository) => {
             role: role,
             message: message,
           };
-          req.session.user = loggedUserInfo;
 
+          req.session.user = loggedUserInfo;
           res.render("main", {
             display_details: {
               displayName: `Welcome [${role}] ${userLogged}  `,
@@ -55,6 +55,7 @@ const initializeAPI = (userRepository) => {
         res.render("login", { error: message });
       }
     } else {
+      //redirect to login page if user api service is down
       res.render("login", {
         error: "Server not available. Please login after sometime",
       });
