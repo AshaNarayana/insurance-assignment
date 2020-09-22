@@ -1,9 +1,7 @@
 const getPolicyByName = (userRepository) => {
   return async (req, res) => {
     const userName = req.body.userName;
-    console.log("userName", userName);
     const policies = userRepository.findPoliciesByUserName(userName);
-    console.log("policies",policies)
     if (policies) {
       res.render("display", {
         display_details: {

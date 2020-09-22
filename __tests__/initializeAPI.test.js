@@ -1,7 +1,5 @@
 const app = require('../server/server')
 const fetch = require('node-fetch');
-const initializeAPI = require('../routes/initializeAPI')
-
 describe("In-Memory User Repository", () => {
 it("should get all user details from API", async() => {
     const response = await fetch('http://www.mocky.io/v2/580891a4100000e8242b75c5');

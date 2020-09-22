@@ -62,14 +62,4 @@ const initializeAPI = (userRepository) => {
   };
 };
 
-// const validateUser = (userRepository, req) => {
-//   const usersData = userRepository.getAllUsers();
-//   const emailProvided = req.body.email;
-//   const userLogged = req.body.userName;
-//   const hasMatch = usersData.find((item) => {
-//     return item.email === emailProvided && item.name === userLogged;
-//   });
-//   return hasMatch;
-// };
-
 module.exports = initializeAPI;

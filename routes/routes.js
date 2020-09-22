@@ -5,10 +5,7 @@ app.get("/", (req, res) => {
 });
 app.get("/logout", (req, res) => {
   req.session.reset();
-  console.log("req sess after logout",req.session )
-  
-  res.redirect('/');
- // res.render("login", { error: "" });
+  res.redirect("/");
 });
 app.get("/main", (req, res) => {
   if (req.session && req.session.user) {
