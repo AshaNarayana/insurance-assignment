@@ -58,7 +58,7 @@ Implemented under folder __tests__
 * Npm :  version 6.14.6
 * Bootstrap 4
 * Framework : Express
-* Singleton design pattern
+* Design pattern
 * Javascript
 * HTML
 * CSS
@@ -75,3 +75,11 @@ $ git clone https://github.com/AshaNarayana/insurance-assignment.git
 $ npm init
 $ npm run start
 ```
+#### Additional Note about web application
+- Application developed on port 3000
+- Login with user credentials as mentioned above
+- Options are displayed based on role.
+- Search using user name, user id and policy number.
+- At any time click on Insurance and Policies tab at the top to go to main page.
+- Click on logout to login with different user.
+
