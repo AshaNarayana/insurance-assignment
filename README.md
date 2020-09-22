@@ -27,10 +27,12 @@ Following features are implemented in this application.
       - Handles both valid and invalid policy number.
 
 5) Authentication and authorization. Take the user role from the web service that returns the list of company clients.Application uses client-sessions for session management.
-> Login : Enter user name and email id from web services. 
-> Role  : If logged in user has admin access all four web services are available to the user. 
-          If user isn't admin only getUserById and getUserByName modules are available to user-
-> Logout: Redirects to login page.
+- Login : Enter user name and email id from web services. 
+
+- Role  : If logged in user has admin access all four web services are available to the user. 
+          If user isn't admin only getUserById and getUserByName modules are available to user
+          
+- Logout: Redirects to login page.
 
  
 ## Test Cases
@@ -67,6 +69,9 @@ Implemented under folder __tests__
 
 ## Setup
 To run this project, assuming npm is installed locally.
+
+```
 $ git clone https://github.com/AshaNarayana/insurance-assignment.git
 $ npm init
 $ npm run start
+```
