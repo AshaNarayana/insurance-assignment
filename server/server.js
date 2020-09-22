@@ -51,9 +51,9 @@ app.post('/policyNumber', getUserByPolicyRoute)
 //app.get('/users/fetchAllUsers', fetchAllUsersRoute)
 app.post('/main', initializeApiRoute)
 app.get('/main', require('../routes/routes'))
-// app.use(function (req, res, next) {
-//     res.status(404).send("Sorry can't find that..!")
-//   });
+app.use(function (req, res) {
+    res.status(404).send("Sorry can't find that..! :) ")
+  });
 //   app.use(cookieParser());
 
 //   app.use(session({

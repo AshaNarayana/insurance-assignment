@@ -3,15 +3,18 @@ const app = express();
 app.get("/", (req, res) => {
   res.render("login", { error: "" });
 });
-app.get("/main", (req, res) => {
-  console.log("req.session",req.session)
-  console.log("req.session",req.session.user)
+app.get("/logout", (req, res) => {
+  req.session.reset();
+  console.log("req sess after logout",req.session )
   
+  res.redirect('/');
+ // res.render("login", { error: "" });
+});
+app.get("/main", (req, res) => {
   if (req.session && req.session.user) {
-    console.log("req.session.user",req.session.user)
-    const role = req.session.user.role
-    const userLogged = req.session.user.userName
-    const message = req.session.user.message
+    const role = req.session.user.role;
+    const userLogged = req.session.user.userName;
+    const message = req.session.user.message;
 
     res.render("main", {
       display_details: {
@@ -20,11 +23,8 @@ app.get("/main", (req, res) => {
         message: message,
       },
     });
-  }
-  else {
+  } else {
     res.render("login", { error: "Please login to continue" });
   }
-  
-  
 });
 module.exports = app;
