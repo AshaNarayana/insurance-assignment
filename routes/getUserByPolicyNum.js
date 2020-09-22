@@ -12,7 +12,7 @@ const getUserByPolicyNum = (userRepository) => {
     } else {
       res.render("display", {
         display_details: {
-          displayName: `Details of ${policyNumber}`,
+          displayName: `Invalid policy number ${policyNumber}`,
           result: "Invalid policy number. Please re-enter policy number",
         },
       });

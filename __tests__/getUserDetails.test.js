@@ -1,4 +1,4 @@
-const userInfo = require("../userInfo/userInfoRepositories");
+const userInfo = require("../repository/userInfoRepositories");
 describe("In-Memory User Repository", () => {
   const userRepository = new userInfo();
   userRepository.memory = {

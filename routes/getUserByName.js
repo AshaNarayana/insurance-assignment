@@ -12,7 +12,7 @@ const getUserByName = (userRepository) => {
     } else {
       res.render("display", {
         display_details: {
-          displayName: `Details of ${userName}`,
+          displayName: `Invalid Client Name ${userName}`,
           result: "Invalid client name. Please re-enter valid name",
         },
       });

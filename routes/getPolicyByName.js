@@ -3,7 +3,8 @@ const getPolicyByName = (userRepository) => {
     const userName = req.body.userName;
     console.log("userName", userName);
     const policies = userRepository.findPoliciesByUserName(userName);
-    if (policies.length > 0) {
+    console.log("policies",policies)
+    if (policies) {
       res.render("display", {
         display_details: {
           displayName: `There is/are ${policies.length} policy/policies associated with client ${userName}`,
@@ -13,7 +14,7 @@ const getPolicyByName = (userRepository) => {
     } else {
       res.render("display", {
         display_details: {
-          displayName: `Error ${userName}`,
+          displayName: `Invalid Client Name ${userName}  `,
           result: "Invalid client name. Please enter valid client name",
         },
       });

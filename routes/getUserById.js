@@ -12,8 +12,8 @@ const getUserById = (userRepository) => {
     } else {
       res.render("display", {
         display_details: {
-          displayName: `Details of ${userId}`,
-          result: "Invalid user Id. Please enter valid ID",
+          displayName: `Invalid Client ID  ${userId}`,
+          result: "Invalid client Id. Please enter valid client id",
         },
       });
     }

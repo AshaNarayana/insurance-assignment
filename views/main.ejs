@@ -8,12 +8,11 @@
 </head>
 
 <body>
+  <%- include('__navbar'); -%>
   <h2><%= display_details.displayName %></h2>
-
   <% if(display_details.message != "") { %>
   <h3 style="color: brown;"><%= display_details.message %></h3>
   <% } %>
-
   <form method="POST" action="/userName">
     <div class="container">
       <label for="userName"><strong>Enter Client Name</strong></label>

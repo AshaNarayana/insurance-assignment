@@ -30,10 +30,14 @@ class UserInfo {
 
   findUserInfoByUserName(userName) {
     const allUsers = this.getAllUsers();
+
     const userInfo = allUsers.filter((item) => {
       return item.name === userName;
     });
+    if(allUsers){
     return userInfo[0];
+    }
+    else return false
   }
 
   findUserByPolicyNumber(policyNumber) {
@@ -57,21 +61,19 @@ class UserInfo {
     const policyArr = this.memory["policies"];
     let policiesLinked = [];
     const clientArr = this.memory["clients"];
+    
     const clientInfo = clientArr.find((item) => {
       return item.name === userName;
     });
-    if (clientInfo.id) {
+    
+    if (clientInfo) {
       policiesLinked = policyArr.filter((item) => {
         return item.clientId === clientInfo.id;
       });
 
-      if (policiesLinked.length > 0) {
-        return policiesLinked;
-      } else {
-        return `no policies associated with user ${userName} `;
-      }
+      return policiesLinked
     } else {
-      return "Invalid policy number";
+      return false
     }
   }
 

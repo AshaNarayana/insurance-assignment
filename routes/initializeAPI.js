@@ -15,8 +15,6 @@ const initializeAPI = (userRepository) => {
       const emailProvided = req.body.email;
       //validate logged in user
       const isValid = userRepository.validateUser(userLogged,emailProvided)
-      console.log("isValid",isValid)
-     // const hasMatch = validateUser(userRepository, req);
       if (isValid) {
         try {
           let role = userRepository.findRole(userLogged);
@@ -34,6 +32,17 @@ const initializeAPI = (userRepository) => {
               message = "Policy service not available at the moment";
             }
           }
+          try{
+          const loggedUserInfo= {userName : userLogged,
+            role : role,
+            message : message
+          }
+          req.session.user = loggedUserInfo;
+          console.log("req.session",req.session)
+
+        }catch(error){
+          console.log("sesssion error", error)
+        }
           res.render("main", {
             display_details: {
               displayName: `Welcome [${role}] ${userLogged}  `,
