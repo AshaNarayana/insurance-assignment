@@ -5,6 +5,7 @@
 * [Test Cases](#test-cases)
 * [Technologies](#technologies)
 * [Setup](#setup)
+* [Additional Note](#additional-note)
 
 ## Features Implemented
 Following features are implemented in this application.
@@ -75,11 +76,13 @@ $ git clone https://github.com/AshaNarayana/insurance-assignment.git
 $ npm init
 $ npm run start
 ```
-#### Additional Note about web application
+
+## Additional Note
+Additional information regarding usage of web application.
+
 - Application developed on port 3000
 - Login with user credentials as mentioned above
 - Options are displayed based on role.
 - Search using user name, user id and policy number.
 - At any time click on Insurance and Policies tab at the top to go to main page.
 - Click on logout to login with different user.
-
