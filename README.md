@@ -73,8 +73,9 @@ To run this project, assuming npm is installed locally.
 
 ```
 $ git clone https://github.com/AshaNarayana/insurance-assignment.git
-$ npm init
-$ npm run start
+$ npm install
+$ npm run start 
+$ npm run test   
 ```
 
 ## Additional Note
