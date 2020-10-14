@@ -8,7 +8,7 @@
 * [Additional Note](#additional-note)
 
 ## Features Implemented
-Following features are implemented in this application.
+Following features are implemented in this simple application.
 
 1.  Get user data filtered by user id ->
       - Routing performed by module getUserById.
